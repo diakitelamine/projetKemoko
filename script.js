@@ -12,57 +12,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form validation
-const forms = document.querySelectorAll('.needs-validation');
-Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-    }, false);
-});
-
-// Contact form submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        
-        // Show success message
-        showSuccessMessage('Merci ! Votre message a été envoyé avec succès. Nous vous recontacterons sous 24h.');
-        
-        // Reset form
-        this.reset();
-        this.classList.remove('was-validated');
-    });
-}
-
-// Success message function
-function showSuccessMessage(message) {
-    const alertDiv = document.createElement('div');
-    alertDiv.className = 'alert alert-success alert-dismissible fade show';
-    alertDiv.setAttribute('role', 'alert');
-    alertDiv.innerHTML = `
-        <i class="bi bi-check-circle me-2"></i>
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    `;
-    
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.parentNode.insertBefore(alertDiv, form);
-        
-        // Auto-dismiss after 5 seconds
-        setTimeout(() => {
-            alertDiv.remove();
-        }, 5000);
-    }
-}
+// Contact forms are now handled by Formspree
+// Forms will redirect to a thank you page after submission
 
 // Navbar active link highlighting
 function updateActiveLink() {

@@ -288,23 +288,23 @@
             
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <form id="contactForm">
+                    <form action="https://formspree.io/f/mjkaqebl" method="POST" id="contactFormHome">
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Nom complet *" required>
+                                <input type="text" class="form-control" name="nom" placeholder="Nom complet *" required>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Email *" required>
+                                <input type="email" class="form-control" name="email" placeholder="Email *" required>
                             </div>
                             <div class="col-md-6">
-                                <input type="tel" class="form-control" placeholder="Téléphone *" required>
+                                <input type="tel" class="form-control" name="telephone" placeholder="Téléphone *" required>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Code postal">
+                                <input type="text" class="form-control" name="codepostal" placeholder="Code postal">
                             </div>
                             <div class="col-12">
-                                <select class="form-select">
-                                    <option selected>Type de projet *</option>
+                                <select class="form-select" name="typeprojet" required>
+                                    <option selected disabled value="">Type de projet *</option>
                                     <option>Isolation thermique</option>
                                     <option>Chauffage / Chaudière</option>
                                     <option>Ventilation VMC</option>
@@ -313,7 +313,7 @@
                                 </select>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control" rows="4" placeholder="Décrivez brièvement votre projet de rénovation..."></textarea>
+                                <textarea class="form-control" name="message" rows="4" placeholder="Décrivez brièvement votre projet de rénovation..." required></textarea>
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-success btn-lg w-100">

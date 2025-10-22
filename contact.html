@@ -74,25 +74,19 @@
                             </h2>
                             <p class="text-muted mb-4">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
 
-                            <form id="contactForm" class="needs-validation" novalidate>
+                            <form action="https://formspree.io/f/mjkaqebl" method="POST" id="contactForm">
                                 <div class="row g-3 mb-3">
                                     <div class="col-md-6">
                                         <label for="nom" class="form-label fw-semibold">
                                             <i class="bi bi-person me-1"></i>Nom complet *
                                         </label>
-                                        <input type="text" class="form-control form-control-lg" id="nom" placeholder="Votre nom" required>
-                                        <div class="invalid-feedback">
-                                            Veuillez entrer votre nom.
-                                        </div>
+                                        <input type="text" class="form-control form-control-lg" id="nom" name="nom" placeholder="Votre nom" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="email" class="form-label fw-semibold">
                                             <i class="bi bi-envelope me-1"></i>Email *
                                         </label>
-                                        <input type="email" class="form-control form-control-lg" id="email" placeholder="votre@email.com" required>
-                                        <div class="invalid-feedback">
-                                            Veuillez entrer un email valide.
-                                        </div>
+                                        <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="votre@email.com" required>
                                     </div>
                                 </div>
 
@@ -101,16 +95,13 @@
                                         <label for="telephone" class="form-label fw-semibold">
                                             <i class="bi bi-telephone me-1"></i>Téléphone *
                                         </label>
-                                        <input type="tel" class="form-control form-control-lg" id="telephone" placeholder="06 XX XX XX XX" required>
-                                        <div class="invalid-feedback">
-                                            Veuillez entrer votre téléphone.
-                                        </div>
+                                        <input type="tel" class="form-control form-control-lg" id="telephone" name="telephone" placeholder="06 XX XX XX XX" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="codepostal" class="form-label fw-semibold">
                                             <i class="bi bi-geo-alt me-1"></i>Code postal
                                         </label>
-                                        <input type="text" class="form-control form-control-lg" id="codepostal" placeholder="75000">
+                                        <input type="text" class="form-control form-control-lg" id="codepostal" name="codepostal" placeholder="75000">
                                     </div>
                                 </div>
 
@@ -118,8 +109,8 @@
                                     <label for="typeprojet" class="form-label fw-semibold">
                                         <i class="bi bi-tools me-1"></i>Type de projet *
                                     </label>
-                                    <select class="form-select form-select-lg" id="typeprojet" required>
-                                        <option selected disabled>Sélectionnez un type de projet</option>
+                                    <select class="form-select form-select-lg" id="typeprojet" name="typeprojet" required>
+                                        <option selected disabled value="">Sélectionnez un type de projet</option>
                                         <option>Isolation thermique</option>
                                         <option>Chauffage / Chaudière</option>
                                         <option>Ventilation VMC</option>
@@ -127,29 +118,13 @@
                                         <option>Rénovation globale</option>
                                         <option>Autre</option>
                                     </select>
-                                    <div class="invalid-feedback">
-                                        Veuillez sélectionner un type de projet.
-                                    </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="message" class="form-label fw-semibold">
                                         <i class="bi bi-chat-left-text me-1"></i>Message *
                                     </label>
-                                    <textarea class="form-control form-control-lg" id="message" rows="5" placeholder="Décrivez votre projet et vos questions..." required></textarea>
-                                    <div class="invalid-feedback">
-                                        Veuillez entrer un message.
-                                    </div>
-                                </div>
-
-                                <div class="mb-4 form-check">
-                                    <input type="checkbox" class="form-check-input" id="rgpd" required>
-                                    <label class="form-check-label" for="rgpd">
-                                        J'accepte la <a href="#" class="text-success">politique de confidentialité</a> *
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        Vous devez accepter la politique de confidentialité.
-                                    </div>
+                                    <textarea class="form-control form-control-lg" id="message" name="message" rows="5" placeholder="Décrivez votre projet et vos questions..." required></textarea>
                                 </div>
 
                                 <button type="submit" class="btn btn-success btn-lg w-100 shadow">
