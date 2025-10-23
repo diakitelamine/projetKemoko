@@ -331,15 +331,18 @@ body {
 .form-select {
     padding: 12px 20px;
     border-radius: 8px;
-    border: 1px solid #495057;
-    background: #343a40;
-    color: white;
+    border: 2px solid #dee2e6;
+    background: #ffffff;
+    color: #212529;
+    transition: all 0.3s ease;
 }
 
 .form-select:focus {
-    background: #495057;
-    border-color: var(--bs-primary);
-    color: white;
+    background: #ffffff;
+    border-color: var(--bs-success);
+    color: #212529;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+    outline: none;
 }
 
 /* Footer */
