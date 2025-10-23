@@ -155,3 +155,81 @@ formInputs.forEach(input => {
 
 console.log('Rénov\'Conseil Plus - Site loaded successfully');
 
+// Cookie Consent Banner
+function showCookieBanner() {
+    // Check if user has already accepted cookies
+    if (localStorage.getItem('cookiesAccepted')) {
+        return;
+    }
+
+    // Create cookie banner
+    const banner = document.createElement('div');
+    banner.id = 'cookieBanner';
+    banner.style.cssText = `
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 20px;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+    `;
+
+    banner.innerHTML = `
+        <div style="flex: 1; min-width: 300px;">
+            <p style="margin: 0; font-size: 14px;">
+                <i class="bi bi-shield-check me-2"></i>
+                <strong>Respect de votre vie privée</strong><br>
+                Nous utilisons des cookies pour améliorer votre expérience sur notre site.
+                En continuant votre navigation, vous acceptez notre utilisation des cookies.
+                <a href="politique-confidentialite.html" style="color: #3498db; text-decoration: underline;">En savoir plus</a>
+            </p>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button id="acceptCookies" class="btn btn-success" style="white-space: nowrap;">
+                <i class="bi bi-check-circle me-2"></i>Accepter
+            </button>
+            <button id="refuseCookies" class="btn btn-outline-light" style="white-space: nowrap;">
+                Refuser
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    // Accept cookies
+    document.getElementById('acceptCookies').addEventListener('click', function() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        banner.style.animation = 'slideDown 0.5s ease';
+        setTimeout(() => banner.remove(), 500);
+    });
+
+    // Refuse cookies
+    document.getElementById('refuseCookies').addEventListener('click', function() {
+        localStorage.setItem('cookiesAccepted', 'false');
+        banner.style.animation = 'slideDown 0.5s ease';
+        setTimeout(() => banner.remove(), 500);
+    });
+}
+
+// Add slide down animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideDown {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(100%); opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
+
+// Show cookie banner on page load
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(showCookieBanner, 1000);
+});
